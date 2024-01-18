@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="RsR" />
+    <title></title>
+</head>
+
+<body class="sb-nav-fixed" 
+    [ngClass]="{'sb-sidenav-toggled': !isCollapsedSidenav }">
+    
+        <!-- topnav - START -->
+        <app-topnav />
+        <!-- topnav - ENDS -->
+    
+    <div id="layoutSidenav">
+        <!-- sidenav - START -->
+        <app-sidenav />
+        <!-- sidenav - ENDS -->
+        <div id="layoutSidenav_content">
+            <router-outlet />
+            <app-footer />
+        </div>
+    </div>
+</body>
+
+</html>
