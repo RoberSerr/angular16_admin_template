@@ -1,27 +1,127 @@
-# Angular16AdminTemplate
+# Plantilla Administración API Rest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+Partiendo de un proyecto nuevo todos los pasos que he seguido
 
-## Development server
+>> ### Añadir ficheros visual studio code a .gitignore
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 
-## Code scaffolding
+# Local History for Visual Studio Code
+.history/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Built Visual Studio Code Extensions
+*.vsix
 
-## Build
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+>> ### Instalar Bootstrap, Popper, FontsAwesome
 
-## Running unit tests
+```bash
+### Bootstrap
+ng add @ng-bootstrap/ng-bootstrap
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Popper
+npm i angular-popper
 
-## Running end-to-end tests
+### Fonts Awesome
+npm i @fortawesome/angular-fontawesome@0.13.0
+npm i @fortawesome/free-solid-svg-icons i @fortawesome/free-brands-svg-icons i @fortawesome/free-regular-svg-icons
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+>> ### tsconfig.json Configuración previa de PATHS  y trabajo con json
 
-## Further help
+```json
+// tsconfig.json
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+"compilerOptions": {
+    "resolveJsonModule": true,
+    "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@modules/*": [
+        "src/app/modules/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ]
+    },
+}
+```
+
+>> ### angular.json Autmatizar la creación de componentes standalone
+
+```json
+// angular.json
+
+{
+  "proyects": {
+    "proyect": {
+
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
+        }
+      },
+
+    }
+  }
+}
+```
+
+## FIRST COMMIT
+
+>> ### SCAFOLDING
+
+```bash
+ app| 
+    |
+    |_____core|
+    |         |___ models
+    |
+    |____data
+    |
+    |____modules| 
+    |           |____auth|
+    |           |        |___pages
+    |           |        |___layout
+    |           |        |___components
+    |           |        |___pipes   
+    |           |        |___services       
+    |           |
+    |           |
+    |           |_____main|
+    |                     |___pages
+    |                     |___layout
+    |                     |___components
+    |                     |___pipes   
+    |                     |___services       
+    | 
+    |_____shared|
+                |___components
+                |___pies
+                |___services
+```
+
+>> ### Pasada la hoja de estilos
+
+## FIRST COMMIT
+
+>> ### Terminadas las rutas, empezamos con los layouts
