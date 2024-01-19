@@ -147,7 +147,7 @@
                                                 "route": "auth/login",
                                                 "router": [
                                                     "/",
-                                                    "login"
+                                                    "auth/login"
                                                 ]
                                             },
                                             "ui": {
@@ -171,7 +171,7 @@
                                                         "title": "Login",
                                                         "router": [
                                                             "/",
-                                                            "login"
+                                                            "auth/login"
                                                         ]
                                                     }
                                                 ]
@@ -184,7 +184,7 @@
                                                 "route": "register",
                                                 "router": [
                                                     "/",
-                                                    "register"
+                                                    "auth/register"
                                                 ]
                                             },
                                             "ui": {
@@ -208,7 +208,7 @@
                                                         "title": "Register",
                                                         "router": [
                                                             "/",
-                                                            "register"
+                                                            "auth/register"
                                                         ]
                                                     }
                                                 ]
@@ -221,7 +221,7 @@
                                                 "route": "password",
                                                 "router": [
                                                     "/",
-                                                    "password"
+                                                    "auth/password"
                                                 ]
                                             },
                                             "ui": {
@@ -245,7 +245,7 @@
                                                         "title": "Password",
                                                         "router": [
                                                             "/",
-                                                            "password"
+                                                            "auth/password"
                                                         ]
                                                     }
                                                 ]
