@@ -22,5 +22,9 @@ export const authRoutes: Routes = [
         path: 'password',
         loadChildren: () => import('@modules/auth/pages/password/password.routes')
             .then(r => r.passwordRoutes)
+    },
+    {
+        path: '**',
+        redirectTo: '/auth/login'
     }
 ];

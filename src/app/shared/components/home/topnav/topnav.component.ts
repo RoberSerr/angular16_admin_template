@@ -54,4 +54,7 @@ export class TopnavComponent implements OnInit, OnDestroy {
     throw new Error('error icono')
   }
 
+  goTo(ruta: string):void {
+    this._router.navigate(["/", ruta])
+  }
 }

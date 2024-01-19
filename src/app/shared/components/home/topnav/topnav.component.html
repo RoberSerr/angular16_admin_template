@@ -25,9 +25,20 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" ngbDropdownToggle>
                 <fa-icon [icon]="getIcon('faUser')"></fa-icon>
             </a>
-            <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end" 
+            <ul *ngIf="false" ngbDropdownMenu class="dropdown-menu dropdown-menu-end" 
                 aria-labelledby="navbarDropdown">
                 <li><a type="button" class="dropdown-item" >Settings</a></li>
+                <li><a type="button" class="dropdown-item" >Activity Log</a></li>
+                <li>
+                    <hr class="dropdown-divider" />
+                </li>
+                <li><a type="button" class="dropdown-item" >Logout</a></li>
+            </ul>
+            <ul *ngIf="true" ngbDropdownMenu class="dropdown-menu dropdown-menu-end" 
+                aria-labelledby="navbarDropdown">
+                <li><a (click)="goTo('dashboard')" type="button" class="dropdown-item" >
+                    <fa-icon [icon]="getIcon('faBars')"></fa-icon>
+                    Login</a></li>
                 <li><a type="button" class="dropdown-item" >Activity Log</a></li>
                 <li>
                     <hr class="dropdown-divider" />
