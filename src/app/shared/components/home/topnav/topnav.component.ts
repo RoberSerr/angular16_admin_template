@@ -2,8 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { appIcons } from '@shared/services/data/app.icons';
+
 import { HomePageService } from '@modules/main/pages/home-page/services/home-page.service';
 
 
@@ -13,12 +17,16 @@ import { HomePageService } from '@modules/main/pages/home-page/services/home-pag
   imports: [
     CommonModule,
     RouterModule,
-    FontAwesomeModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    NgbDropdownModule
   ],
   templateUrl: './topnav.component.html',
   styleUrls: ['./topnav.component.css']
 })
 export class TopnavComponent implements OnInit, OnDestroy {
+
+  brandName = '';
 
   constructor(
     private _router: Router,
@@ -29,7 +37,7 @@ export class TopnavComponent implements OnInit, OnDestroy {
 
   }
   ngOnInit(): void {
-
+    this.brandName = this._HomePageService.brandName
   }
 
   showSidebar(): void {
