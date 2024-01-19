@@ -133,7 +133,7 @@
                         "items": [
                             {
                                 "name": "autentication",
-                                "level_4": {
+                                "level_3": {
                                     "toggle": {
                                         "name": "isCollapsedAutentication",
                                         "dataparent": "#pages",
@@ -256,7 +256,7 @@
                             },
                             {
                                 "name": "error",
-                                "level_4": {
+                                "level_3": {
                                     "toggle": {
                                         "name": "isCollapsedError",
                                         "dataparent": "#pages",

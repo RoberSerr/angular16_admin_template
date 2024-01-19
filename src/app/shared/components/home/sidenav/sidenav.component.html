@@ -3,60 +3,65 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div *ngFor="let item of menuSidebar">
-                    <!-- item de sidebarMenu NAME -->
                     <div class="sb-sidenav-menu-heading">{{item.name}}</div>
-                    <!-- level_1 STARTS -->
-                    
-                    <div *ngFor="let item1 of item.level_1">
-
-                        <!-- level_1 - LINK -->
-                        <div *ngIf="item1.link">
-                            <a type="button" class="nav-link collapsed">
+                    <div *ngFor="let item of item.level_1">
+                        <div *ngIf="item.link">
+                            <a class="nav-link">
                                 <div class="sb-nav-link-icon">
-                                    <fa-icon [icon]="getIcon(item1.icon!.name)"></fa-icon>
+                                    <fa-icon [icon]="getIcon(item.icon!.name)"></fa-icon>
                                 </div>
-                                {{item1.link.name | titlecase}}
+                                {{item.link.name}}
                             </a>
                         </div>
-
-                        <!-- level_1 - SONS -->
-                        <div *ngIf="!item1.link">
-                            <a (click)="collapse.toggle()" [attr.aria-expanded]="!item1.level_2!.toggle.name"
-                                type="button" class="nav-link collapsed">
+                        <div *ngIf="!item.link">
+                            <a class="nav-link collapsed" type="button" (click)="collapse.toggle()"
+                                [attr.aria-expanded]="!item.level_2!.toggle!.value">
                                 <div class="sb-nav-link-icon">
-                                    <fa-icon [icon]="this.getIcon(item1.icon!.name)"></fa-icon>
+                                    <fa-icon [icon]="getIcon(item.icon!.name)"></fa-icon>
                                 </div>
-                                {{item1.name | titlecase}}
+                                {{item.name | titlecase}}
                                 <div class="sb-sidenav-collapse-arrow">
-                                    <fa-icon [icon]="this.getIcon('faAngleDown')"></fa-icon>
+                                    <fa-icon [icon]="getIcon('faAngleDown')"></fa-icon>
                                 </div>
                             </a>
-                            <div #collapse="ngbCollapse" class="collapse"
-                                (data-parent)="item1.level_2!.toggle!.dataparent"
-                                [(ngbCollapse)]="item1.level_2!.toggle.value">
+                            <div class="collapse" #collapse="ngbCollapse" [(ngbCollapse)]="item.level_2!.toggle!.value"
+                                (dataparent)="item.level_2!.toggle!.dataparent">
+
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- level_2 - STARTS -->
-                                    <div *ngFor="let item2 of item1.level_2!.items">
-                                        <div *ngIf="item2.link">
-                                            <a type="button" class="nav-link collapsed">
-                                                {{item2.link.name | titlecase}}
+                                    <div *ngFor="let item of item.level_2!.items">
+                                        <div *ngIf="item.link">
+                                            <a class="nav-link">
+                                                {{item.link.name}}
                                             </a>
                                         </div>
-                                        <div *ngIf="!item2.link">
-                                            <a type="button" class="nav-link collapsed">
-                                                {{item2.name | titlecase}}
+                                        <div *ngIf="!item.link">
+
+
+                                            <a class="nav-link collapsed" type="button" (click)="collapse.toggle()"
+                                                [attr.aria-expanded]="!item.level_3!.toggle!.value">
+                                                {{item.name | titlecase}}
                                                 <div class="sb-sidenav-collapse-arrow">
-                                                    <fa-icon [icon]="this.getIcon('faAngleDown')"></fa-icon>
+                                                    <fa-icon [icon]="getIcon('faAngleDown')"></fa-icon>
                                                 </div>
                                             </a>
+                                            <div class="collapse" #collapse="ngbCollapse"
+                                                [(ngbCollapse)]="item.level_3!.toggle!.value"
+                                                (dataparent)="item.level_3!.toggle!.dataparent">
+
+                                                <nav class="sb-sidenav-menu-nested nav">
+                                                    <div *ngFor="let item of item.level_3!.items">
+                                                        <a class="nav-link">
+                                                            {{item.link!.name}}
+                                                        </a>
+                                                    </div>
+                                                </nav>
+                                            </div>
                                         </div>
-                                        
                                     </div>
                                 </nav>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -67,4 +72,3 @@
         </div>
     </nav>
 </div>
-

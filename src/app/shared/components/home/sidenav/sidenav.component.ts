@@ -28,6 +28,12 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   menuSidebar: SidebarMenuItemModel[] = []
   listObservers$: Subscription[] = [];
+
+  isCollapsed = true;
+  isCollapsedLayouts = true;
+  isCollapsedPages = true;
+  isCollapsedAutentication = true;
+  isCollapsedError = true;  
   
   constructor(
     private _router: Router,
