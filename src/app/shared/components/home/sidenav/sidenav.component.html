@@ -2,6 +2,72 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
+                <div *ngFor="let item of menuSidebar">
+                    <!-- item de sidebarMenu NAME -->
+                    <div class="sb-sidenav-menu-heading">{{item.name}}</div>
+                    <!-- level_1 STARTS -->
+                    <ng-container *ngTemplateOutlet="level_1 context: {$implicit: item.level_1}"></ng-container>
+
+
+                    <!-- level_1 TEMPLATE -->
+                    <ng-template #level_1 let-level1_items>
+                        <div *ngFor="let item1 of level1_items">
+
+                            <!-- level_1 - LINK -->
+                            <div *ngIf="item1.link">
+                                <a class="nav-link" href="index.html">
+                                    <div class="sb-nav-link-icon">
+                                        <fa-icon [icon]="getIcon(item1.icon!.name)"></fa-icon>
+                                    </div>
+                                    {{item1.name | titlecase}}
+                                </a>
+                            </div>
+                            <!-- level_1 - SONS -->
+                            <div *ngIf="!item1.link">
+                                <a (click)="collapse.toggle()" [attr.aria-expanded]="!item1.level_2!.toggle.name"
+                                    type="button" class="nav-link collapsed">
+                                    <div class="sb-nav-link-icon">
+                                        <fa-icon [icon]="this.getIcon(item1.icon!.name)"></fa-icon>
+                                    </div>
+                                    {{item1.name | titlecase}}
+                                    <div class="sb-sidenav-collapse-arrow">
+                                        <fa-icon [icon]="this.getIcon('faAngleDown')"></fa-icon>
+                                    </div>
+                                </a>
+                                <div #collapse="ngbCollapse" class="collapse"
+                                    (data-parent)="item1.level_2!.toggle!.dataparent"
+                                    [(ngbCollapse)]="item1.level_2!.toggle.value">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <!-- level_2 - STARTS -->
+                                        <ng-container
+                                            *ngTemplateOutlet="level_2 context: {$implicit: item1.level_2.items}"></ng-container>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <!-- level_2 TEMPLATE -->
+                    <ng-template #level_2 let-level2_items>
+                        <div *ngFor="let item2 of level2_items">
+                            
+                        </div>
+                    </ng-template>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            Start Bootstrap
+        </div>
+    </nav>
+</div>
+
+
+<!-- 
+            <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
                 <a class="nav-link" href="index.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -69,10 +135,4 @@
                     Tables
                 </a>
             </div>
-        </div>
-        <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
-        </div>
-    </nav>
-</div>
+ -->

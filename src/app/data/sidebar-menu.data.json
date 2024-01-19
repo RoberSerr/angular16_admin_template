@@ -1,0 +1,459 @@
+{
+    "data": [
+        {
+            "name": "core",
+            "level_1": [
+                {
+                    "name": "dashboard",
+                    "link": {
+                        "name": "Dashboard",
+                        "route": "dashboard",
+                        "router": [
+                            "/",
+                            "dashboard"
+                        ]
+                    },
+                    "icon": {
+                        "name": "faTachometer"
+                    },
+                    "ui": {
+                        "title": "Dashboard",
+                        "description": "",
+                        "breadcrumbs": [
+                            {
+                                "title": "Home - Dashboard",
+                                "router": [
+                                    "/",
+                                    "dashboard"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "interface",
+            "level_1": [
+                {
+                    "name": "layouts",
+                    "icon": {
+                        "name": "faColumns"
+                    },
+                    "ui": {},
+                    "level_2": {
+                        "toggle": {
+                            "name": "isCollapsedLayouts",
+                            "dataparent": "#layouts",
+                            "value": true
+                        },
+                        "items": [
+                            {
+                                "name": "static-navigation",
+                                "link": {
+                                    "name": "Static Navigation",
+                                    "route": "static-navigation",
+                                    "router": [
+                                        "/",
+                                        "layout-static"
+                                    ]
+                                },
+                                "ui": {
+                                    "title": "Static Navigation",
+                                    "description": "This page is an example of using static navigation. By removing the .sb-nav-fixed class from the body , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example. ",
+                                    "breadcrumbs": [
+                                        {
+                                            "title": "Home - Dashboard",
+                                            "router": [
+                                                "/",
+                                                "dashboard"
+                                            ]
+                                        },
+                                        {
+                                            "title": "Layouts"
+                                        },
+                                        {
+                                            "title": "Static Navigation",
+                                            "router": [
+                                                "/",
+                                                "layout-static"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "light-sidenav",
+                                "link": {
+                                    "name": "Light Sidenav",
+                                    "route": "light-sidenav",
+                                    "router": [
+                                        "/",
+                                        "layout-sidenav-light"
+                                    ]
+                                },
+                                "ui": {
+                                    "title": "Sidenav Light",
+                                    "description": "This page is an example of using static navigation. By removing the .sb-nav-fixed class from the body , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example. ",
+                                    "breadcrumbs": [
+                                        {
+                                            "title": "Home - Dashboard",
+                                            "router": [
+                                                "/",
+                                                "dashboard"
+                                            ]
+                                        },
+                                        {
+                                            "title": "Layouts"
+                                        },
+                                        {
+                                            "title": "Sidenav Light",
+                                            "router": [
+                                                "/",
+                                                "layout-sidenav-light"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "pages",
+                    "icon": {
+                        "name": "faBookOpen"
+                    },
+                    "level_2": {
+                        "toggle": {
+                            "name": "isCollapsedPages",
+                            "dataparent": "#pages",
+                            "value": true
+                        },
+                        "items": [
+                            {
+                                "name": "autentication",
+                                "level_4": {
+                                    "toggle": {
+                                        "name": "isCollapsedAutentication",
+                                        "dataparent": "#pages",
+                                        "value": true
+                                    },
+                                    "items": [
+                                        {
+                                            "name": "login",
+                                            "link": {
+                                                "name": "Login",
+                                                "route": "auth/login",
+                                                "router": [
+                                                    "/",
+                                                    "login"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "title": "Login",
+                                                "description": "Users Login",
+                                                "breadcrumbs": [
+                                                    {
+                                                        "title": "Home - Dashboard",
+                                                        "router": [
+                                                            "/",
+                                                            "dashboard"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Pages"
+                                                    },
+                                                    {
+                                                        "title": "Autentication"
+                                                    },
+                                                    {
+                                                        "title": "Login",
+                                                        "router": [
+                                                            "/",
+                                                            "login"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "name": "register",
+                                            "link": {
+                                                "name": "Register",
+                                                "route": "register",
+                                                "router": [
+                                                    "/",
+                                                    "register"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "title": "Register",
+                                                "description": "Register form",
+                                                "breadcrumbs": [
+                                                    {
+                                                        "title": "Home - Dashboard",
+                                                        "router": [
+                                                            "/",
+                                                            "dashboard"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Pages"
+                                                    },
+                                                    {
+                                                        "title": "Autentication"
+                                                    },
+                                                    {
+                                                        "title": "Register",
+                                                        "router": [
+                                                            "/",
+                                                            "register"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "name": "password",
+                                            "link": {
+                                                "name": "Password",
+                                                "route": "password",
+                                                "router": [
+                                                    "/",
+                                                    "password"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "title": "Password",
+                                                "description": "Password form",
+                                                "breadcrumbs": [
+                                                    {
+                                                        "title": "Home - Password",
+                                                        "router": [
+                                                            "/",
+                                                            "dashboard"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Pages"
+                                                    },
+                                                    {
+                                                        "title": "Autentication"
+                                                    },
+                                                    {
+                                                        "title": "Password",
+                                                        "router": [
+                                                            "/",
+                                                            "password"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "error",
+                                "level_4": {
+                                    "toggle": {
+                                        "name": "isCollapsedError",
+                                        "dataparent": "#pages",
+                                        "value": true
+                                    },
+                                    "items": [
+                                        {
+                                            "name": "401-page",
+                                            "link": {
+                                                "name": "401 Page",
+                                                "route": "401-page",
+                                                "router": [
+                                                    "/",
+                                                    "401-page"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "title": "401 Page",
+                                                "description": "401 Page",
+                                                "breadcrumbs": [
+                                                    {
+                                                        "title": "Home - Password",
+                                                        "router": [
+                                                            "/",
+                                                            "dashboard"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Pages"
+                                                    },
+                                                    {
+                                                        "title": "Error"
+                                                    },
+                                                    {
+                                                        "title": "401 Page",
+                                                        "router": [
+                                                            "/",
+                                                            "401-page"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "name": "404-page",
+                                            "link": {
+                                                "name": "404 Page",
+                                                "route": "404-page",
+                                                "router": [
+                                                    "/",
+                                                    "404-page"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "title": "404 Page",
+                                                "description": "404 Page",
+                                                "breadcrumbs": [
+                                                    {
+                                                        "title": "Home - Password",
+                                                        "router": [
+                                                            "/",
+                                                            "dashboard"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Pages"
+                                                    },
+                                                    {
+                                                        "title": "Error"
+                                                    },
+                                                    {
+                                                        "title": "404 Page",
+                                                        "router": [
+                                                            "/",
+                                                            "404-page"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "name": "500-page",
+                                            "link": {
+                                                "name": "500 Page",
+                                                "route": "500-page",
+                                                "router": [
+                                                    "/",
+                                                    "500-page"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "title": "500 Page",
+                                                "description": "500 Page",
+                                                "breadcrumbs": [
+                                                    {
+                                                        "title": "Home - Password",
+                                                        "router": [
+                                                            "/",
+                                                            "dashboard"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Pages"
+                                                    },
+                                                    {
+                                                        "title": "Error"
+                                                    },
+                                                    {
+                                                        "title": "500 Page",
+                                                        "router": [
+                                                            "/",
+                                                            "500-page"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "addons",
+            "level_1": [
+                {
+                    "name": "charts",
+                    "link": {
+                        "name": "Charts",
+                        "route": "charts",
+                        "router": [
+                            "/",
+                            "charts"
+                        ]
+                    },
+                    "icon": {
+                        "name": "faChartArea"
+                    },
+                    "ui": {
+                        "title": "Charts",
+                        "description": "",
+                        "breadcrumbs": [
+                            {
+                                "title": "Home - Password",
+                                "router": [
+                                    "/",
+                                    "dashboard"
+                                ]
+                            },
+                            {
+                                "title": "Charts",
+                                "router": [
+                                    "/",
+                                    "charts"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "tables",
+                    "link": {
+                        "name": "Tables",
+                        "route": "tables",
+                        "router": [
+                            "/",
+                            "tables"
+                        ]
+                    },
+                    "icon": {
+                        "name": "faTable"
+                    },
+                    "ui": {
+                        "title": "Tables",
+                        "description": "",
+                        "breadcrumbs": [
+                            {
+                                "title": "Home - Dashboard",
+                                "router": [
+                                    "/",
+                                    "dashboard"
+                                ]
+                            },
+                            {
+                                "title": "Tables",
+                                "router": [
+                                    "/",
+                                    "tables"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
