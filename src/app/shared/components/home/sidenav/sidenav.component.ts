@@ -59,4 +59,10 @@ export class SidenavComponent implements OnInit, OnDestroy {
     }
     throw new Error('error icono')
   }
+
+  goTo( ruta: string[] ):void {
+	  this._router.navigate(ruta)
+    console.log(ruta)
+	}
+
 }

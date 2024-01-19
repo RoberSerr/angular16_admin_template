@@ -146,8 +146,8 @@
                                                 "name": "Login",
                                                 "route": "auth/login",
                                                 "router": [
-                                                    "/",
-                                                    "auth/login"
+                                                    "/auth/",
+                                                    "login"
                                                 ]
                                             },
                                             "ui": {
@@ -170,8 +170,8 @@
                                                     {
                                                         "title": "Login",
                                                         "router": [
-                                                            "/",
-                                                            "auth/login"
+                                                            "/auth/",
+                                                            "login"
                                                         ]
                                                     }
                                                 ]
@@ -183,8 +183,8 @@
                                                 "name": "Register",
                                                 "route": "register",
                                                 "router": [
-                                                    "/",
-                                                    "auth/register"
+                                                    "/auth/",
+                                                    "register"
                                                 ]
                                             },
                                             "ui": {
@@ -207,8 +207,8 @@
                                                     {
                                                         "title": "Register",
                                                         "router": [
-                                                            "/",
-                                                            "auth/register"
+                                                            "/auth/",
+                                                            "register"
                                                         ]
                                                     }
                                                 ]
@@ -220,8 +220,8 @@
                                                 "name": "Password",
                                                 "route": "password",
                                                 "router": [
-                                                    "/",
-                                                    "auth/password"
+                                                    "/auth/",
+                                                    "password"
                                                 ]
                                             },
                                             "ui": {
@@ -244,8 +244,8 @@
                                                     {
                                                         "title": "Password",
                                                         "router": [
-                                                            "/",
-                                                            "auth/password"
+                                                            "/auth/",
+                                                            "password"
                                                         ]
                                                     }
                                                 ]
