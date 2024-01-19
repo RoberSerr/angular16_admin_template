@@ -5,6 +5,7 @@ export const authRoutes: Routes = [
 
     {
         path: '',
+        component: LoginComponent,
         loadChildren: () => import('@modules/auth/pages/login/login.routes')
             .then(r => r.loginRoutes)
     },
@@ -25,6 +26,6 @@ export const authRoutes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '/auth/login'
+        redirectTo: 'login'
     }
 ];
