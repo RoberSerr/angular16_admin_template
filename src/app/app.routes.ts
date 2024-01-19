@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from '@modules/auth/pages/login/login.component';
+import { AuthComponent } from '@modules/auth/pages/auth/auth.component';
+
 import { HomePageComponent } from '@modules/main/pages/home-page/home-page.component';
 
 export const appRoutes: Routes = [
@@ -12,7 +13,9 @@ export const appRoutes: Routes = [
     },
     {
         path: 'auth',
-        component: LoginComponent
+        component: AuthComponent,
+        loadChildren: () => import('@modules/auth/pages/auth.routes')
+            .then(r => r.authRoutes)
     }
 
 ];
