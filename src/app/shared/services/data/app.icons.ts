@@ -1,9 +1,35 @@
 import {
     faTachometer, faColumns, faBookOpen, faChartArea, faTable,
-    faAngleDown, faBars, faSearch, faUser, faBurst, faUserSlash
+    faAngleDown, faBars, faSearch, faUser, faBurst, faUserSlash,
+    faAngleRight, faAreaChart, faBarChart, faLineChart, faChartColumn,
+    faChartPie
 } from '@fortawesome/free-solid-svg-icons';
 
 export const appIcons = [
+    {
+        name: 'faChartPie',
+        icon: faChartPie
+    },
+    {
+        name: 'faChartColumn',
+        icon: faChartColumn
+    },
+    {
+        name: 'faLineChart',
+        icon: faLineChart
+    },
+    {
+        name: 'faBarChart',
+        icon: faBarChart
+    },
+    {
+        name: 'faAreaChart',
+        icon: faAreaChart
+    },
+    {
+        name: 'faAngleRight',
+        icon: faAngleRight
+    },
     {
         name: 'faUserSlash',
         icon: faUserSlash

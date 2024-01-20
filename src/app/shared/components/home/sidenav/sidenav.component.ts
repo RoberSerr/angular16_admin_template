@@ -41,7 +41,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
   ) {}
   
   ngOnInit(): void {
-    const observer1$ = this._sidebarService.sidebaMenuModel$
+    const observer1$ = this._sidebarService.sidebarMenuModel$
       .subscribe(
         ( response: any ) => {
           this.menuSidebar = response
@@ -62,7 +62,6 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   goTo( ruta: string[] ):void {
 	  this._router.navigate(ruta)
-    console.log(ruta)
 	}
 
 }

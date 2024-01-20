@@ -1,0 +1,16 @@
+<div class="position-relative top-0 start-0">
+    <h1 class="mt-4">{{infoPage.title}}</h1>
+    <ol class="breadcrumb mb-4">
+        <div *ngFor="let item of infoPage.breadcrumbs; let primero = first; let ultimo = last">
+            <li *ngIf="primero && infoPage.breadcrumbs.length == 1" class="breadcrumb-item">{{item.title}}&nbsp;&nbsp;</li>
+            <li *ngIf="!ultimo && !primero" class="breadcrumb-item">/&nbsp;&nbsp;{{item.title}}&nbsp;&nbsp;</li>
+            <li *ngIf="ultimo && infoPage.breadcrumbs.length != 1" class="breadcrumb-item active">/&nbsp;&nbsp;{{item.title}}</li>
+            
+        </div>
+    </ol>
+    <div *ngIf="infoPage.description" class="card mb-4">
+        <div class="card-header">
+            {{infoPage.description}}
+        </div>
+    </div>
+</div>

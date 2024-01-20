@@ -25,7 +25,7 @@ Partiendo de un proyecto nuevo todos los pasos que he seguido
 .ionide
 ```
 
->> ### Instalar Bootstrap, Popper, FontsAwesome
+>> ### Instalar Bootstrap, Popper, FontsAwesome, ng2-charts
 
 ```bash
 ### Bootstrap
@@ -37,6 +37,9 @@ npm i angular-popper
 ### Fonts Awesome
 npm i @fortawesome/angular-fontawesome@0.13.0
 npm i @fortawesome/free-solid-svg-icons i @fortawesome/free-brands-svg-icons i @fortawesome/free-regular-svg-icons
+
+### ng2-charts
+npm i ng2-charts
 ```
 
 >> ### tsconfig.json Configuración previa de PATHS  y trabajo con json

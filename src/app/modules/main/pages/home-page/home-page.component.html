@@ -15,15 +15,20 @@
     
         <!-- topnav - START -->
         <app-topnav />
-        <!-- topnav - ENDS -->
     
     <div id="layoutSidenav">
         <!-- sidenav - START -->
         <app-sidenav />
-        <!-- sidenav - ENDS -->
         <div id="layoutSidenav_content">
-            <router-outlet />
+
+            <!-- main pages - START -->
+            <main class="flex-grow-1">
+                <router-outlet />
+            </main>
+
+            <!-- footer - START -->
             <app-footer />
+            
         </div>
     </div>
 </body>

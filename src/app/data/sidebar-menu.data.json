@@ -21,7 +21,7 @@
                         "description": "",
                         "breadcrumbs": [
                             {
-                                "title": "Home - Dashboard",
+                                "title": "Dashboard",
                                 "router": [
                                     "/",
                                     "dashboard"
@@ -63,7 +63,7 @@
                                     "description": "This page is an example of using static navigation. By removing the .sb-nav-fixed class from the body , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example. ",
                                     "breadcrumbs": [
                                         {
-                                            "title": "Home - Dashboard",
+                                            "title": "Dashboard",
                                             "router": [
                                                 "/",
                                                 "dashboard"
@@ -97,7 +97,7 @@
                                     "description": "This page is an example of using static navigation. By removing the .sb-nav-fixed class from the body , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example. ",
                                     "breadcrumbs": [
                                         {
-                                            "title": "Home - Dashboard",
+                                            "title": "Dashboard",
                                             "router": [
                                                 "/",
                                                 "dashboard"
@@ -155,7 +155,7 @@
                                                 "description": "Users Login",
                                                 "breadcrumbs": [
                                                     {
-                                                        "title": "Home - Dashboard",
+                                                        "title": "Dashboard",
                                                         "router": [
                                                             "/",
                                                             "dashboard"
@@ -192,7 +192,7 @@
                                                 "description": "Register form",
                                                 "breadcrumbs": [
                                                     {
-                                                        "title": "Home - Dashboard",
+                                                        "title": "Dashboard",
                                                         "router": [
                                                             "/",
                                                             "dashboard"
@@ -400,10 +400,10 @@
                     },
                     "ui": {
                         "title": "Charts",
-                        "description": "",
+                        "description": "Chart.js is a third party plugin that is used to generate the charts in this template. The charts below have been customized - for further customization options, please visit the official Chart.js documentation at https://www.chartjs.org/docs/latest/",
                         "breadcrumbs": [
                             {
-                                "title": "Home - Password",
+                                "title": "Dashboard",
                                 "router": [
                                     "/",
                                     "dashboard"
@@ -437,7 +437,7 @@
                         "description": "",
                         "breadcrumbs": [
                             {
-                                "title": "Home - Dashboard",
+                                "title": "Dashboard",
                                 "router": [
                                     "/",
                                     "dashboard"

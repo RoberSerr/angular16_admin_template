@@ -10,11 +10,11 @@ import * as dataRaw from '../../../../../data/sidebar-menu.data.json'
 })
 export class SidenavService {
 
-  sidebaMenuModel$: Observable<SidebarMenuItemModel[]> = of([])
+  sidebarMenuModel$: Observable<SidebarMenuItemModel[]> = of([])
 
   constructor() {
     const { data }: any = ( dataRaw as any ).default
-    this.sidebaMenuModel$ = of( data )
+    this.sidebarMenuModel$ = of( data )
   }
 
 }
