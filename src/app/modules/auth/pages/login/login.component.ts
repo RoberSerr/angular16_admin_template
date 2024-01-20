@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
           this.errorSession = false
           const { token, user } = response.data
           this.cookie.set('token', token, 4, '/')
+          this._router.navigate(['/','dashboard'])
         },
         error: error => {
           const err = error.error.error

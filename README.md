@@ -167,6 +167,7 @@ this._AuthService.sendLogin(email, password)
       this.errorSession = false
       const { token, user } = response.data
       this.cookie.set('token', token, 4, '/')
+      this._router.navigate(['/','dashboard'])
     },
     error: error => {
       const err = error.error.error
@@ -180,5 +181,96 @@ this._AuthService.sendLogin(email, password)
 #### Escribir datos en la cookie (servicio)
 
 ```typescript
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators'
+import { CookieService } from 'ngx-cookie-service';
 
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  private readonly URL = environment.api
+
+  constructor(
+    private http: HttpClient,
+    private cookie: CookieService
+  ) { }
+
+  sendLogin( email:string, password: string ): Observable<any> {
+    const body = { email , password }
+    return this.http.post(`${this.URL}/auth/login`, body)
+      .pipe(
+        tap((response: any) => {
+          const { token, user } = response.data
+          this.cookie.set('token_servicio', token, 4, '/')
+        })
+      )
+  }
+}
+```
+
+>> ### Guards (protección de rutas
+
+#### Generar el guard
+
+```bash
+ng g g core/guards/session
+? Which type of guard would you like to create? (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+❯◉ CanActivate    <======
+ ◯ CanActivateChild
+ ◯ CanDeactivate
+ ◯ CanMatch
+```
+
+#### guard
+
+```typescript
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+
+
+export const SessionGuard = (): boolean => {
+  const cookieService = inject(CookieService)
+  const router = inject(Router)
+  try {
+    
+    const token: boolean = cookieService.check('token')
+    if (!token){
+      router.navigate(['/auth/', 'login'])
+    }
+    console.log(token)
+    return token
+
+  } catch (e) {
+    console.log('error con la cookie', e)
+    return false
+  }
+};
+```
+
+#### Activar el guard en las rutas
+
+```typescript
+import { SessionGuard } from '@core/guards/session.guard';
+
+export const appRoutes: Routes = [
+
+    {
+        path: '',
+        component: HomePageComponent,
+        loadChildren: () => import('@modules/main/pages/home.routes')
+            .then(r => r.homeRoutes),
+        canActivate: [SessionGuard]
+    },
+    {
+        path: 'auth',
+        component: AuthComponent,
+        loadChildren: () => import('@modules/auth/pages/auth.routes')
+            .then(r => r.authRoutes)
+    }
+
+];
 ```

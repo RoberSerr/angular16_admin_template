@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { SessionGuard } from '@core/guards/session.guard';
 import { AuthComponent } from '@modules/auth/pages/auth/auth.component';
 
 import { HomePageComponent } from '@modules/main/pages/home-page/home-page.component';
@@ -9,7 +10,8 @@ export const appRoutes: Routes = [
         path: '',
         component: HomePageComponent,
         loadChildren: () => import('@modules/main/pages/home.routes')
-            .then(r => r.homeRoutes)
+            .then(r => r.homeRoutes),
+        canActivate: [SessionGuard]
     },
     {
         path: 'auth',
