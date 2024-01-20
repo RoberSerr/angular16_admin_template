@@ -211,7 +211,7 @@ export class AuthService {
 }
 ```
 
->> ### Guards (protección de rutas
+>> ### GUARDS (protección de rutas
 
 #### Generar el guard
 
@@ -273,4 +273,58 @@ export const appRoutes: Routes = [
     }
 
 ];
+```
+
+>> ### INTERCEPTORS enviar datos por el req.headers
+
+#### Interceptor
+
+```typescript
+export interface InjectSession {
+}
+import { HttpHandlerFn, HttpRequest } from '@angular/common/http'
+import { inject } from '@angular/core'
+import { CookieService } from 'ngx-cookie-service'
+
+export const sessionInterceptor = (request: HttpRequest<unknown>, next: HttpHandlerFn) => {
+
+    try {
+        const cookieService = inject(CookieService)
+        const token = cookieService.get('token')
+        const user_roles = cookieService.get('user_roles')
+
+        let newRequest = request;
+        newRequest = request.clone({
+            setHeaders: {
+                autorization: `Bearer ${token}`
+            }
+        })
+        console.log(request)
+        console.log(newRequest)
+        return next(newRequest)
+    } catch (e) {
+        console.log('error sessionInterceptor:', e)
+        return next(request)
+    }
+}
+```
+
+#### app.config.ts
+
+```typescript
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+
+import { appRoutes } from './app.routes';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { sessionInterceptor } from '@core/interceptors/inject-session';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient( withInterceptors([sessionInterceptor]) ),
+    provideRouter(appRoutes),
+    CookieService
+  ]
+};
 ```

@@ -12,7 +12,6 @@ export const SessionGuard = (): boolean => {
     if (!token){
       router.navigate(['/auth/', 'login'])
     }
-    console.log(token)
     return token
 
   } catch (e) {
