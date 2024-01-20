@@ -125,3 +125,60 @@ npm i @fortawesome/free-solid-svg-icons i @fortawesome/free-brands-svg-icons i @
 ## FIRST COMMIT
 
 >> ### Terminadas las rutas, empezamos con los layouts
+
+>> ### Manejador de cookies NGX Cookie-service
+
+#### Instalación
+
+```bash
+npm i ngx-cookie-service@16.1.0 -S
+```
+
+#### inyectar servicio en la app (app.config.ts)
+
+```typescript 
+import { CookieService } from 'ngx-cookie-service';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient(),
+    provideRouter(appRoutes),
+    CookieService
+  ]
+};
+```
+
+#### Escribir datos en la cookie (componente)
+
+```typescript
+import { AuthService } from '@modules/auth/services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
+
+constructor(
+    private _AuthService: AuthService,
+    private cookie: CookieService
+  ) {}
+
+sendLogin(): void {
+const { email, password } = this.formLogin.value
+this._AuthService.sendLogin(email, password)
+  .subscribe({
+    next: response => {
+      this.errorSession = false
+      const { token, user } = response.data
+      this.cookie.set('token', token, 4, '/')
+    },
+    error: error => {
+      const err = error.error.error
+      this.errorSession = true
+      this.errorSessionText = err
+    }
+  })
+}
+```
+
+#### Escribir datos en la cookie (servicio)
+
+```typescript
+
+```
