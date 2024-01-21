@@ -1,14 +1,21 @@
 import { Routes } from '@angular/router';
+import { currentUser } from '../utils/getCurrentUser';
 
 export const homeRoutes: Routes = [
 
     {
         path: '',
+        resolve: {
+            currentUser
+        },
         loadChildren: () => import('@modules/main/pages/dashboard/dashboard.routes')
             .then(r => r.homeRoutes)
     },
     {
         path: 'dashboard',
+        resolve: {
+            currentUser
+        },
         loadChildren: () => import('@modules/main/pages/dashboard/dashboard.routes')
             .then(r => r.homeRoutes)
     },

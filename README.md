@@ -25,13 +25,13 @@ Partiendo de un proyecto nuevo todos los pasos que he seguido
 .ionide
 ```
 
->> ### Instalar Bootstrap, Popper, FontsAwesome, ng2-charts
+>> ### Instalar Bootstrap, Popper, FontsAwesome, ng2-charts, Cookie Service
 
 ```bash
 ### Bootstrap
 ng add @ng-bootstrap/ng-bootstrap
 
-### Popper
+### Angular Popper
 npm i angular-popper
 
 ### Fonts Awesome
@@ -39,7 +39,10 @@ npm i @fortawesome/angular-fontawesome@0.13.0
 npm i @fortawesome/free-solid-svg-icons i @fortawesome/free-brands-svg-icons i @fortawesome/free-regular-svg-icons
 
 ### ng2-charts
-npm i ng2-charts
+npm i ng2-charts --force
+
+### Cookie Service
+npm i ngx-cookie-service@16.1.0 -S
 ```
 
 >> ### tsconfig.json Configuración previa de PATHS  y trabajo con json

@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { appRoutes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
@@ -8,8 +8,13 @@ import { sessionInterceptor } from '@core/interceptors/inject-session';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient( withInterceptors([sessionInterceptor]) ),
-    provideRouter(appRoutes),
+    provideHttpClient( 
+      withInterceptors([sessionInterceptor]) 
+    ),
+    provideRouter(
+      appRoutes,
+      withComponentInputBinding()
+    ),
     CookieService
   ]
 };

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
@@ -11,6 +11,8 @@ import { SidebarMenuItemModel } from '@core/models/sidebar-menu.model';
 
 import { SidenavService } from './services/sidenav.service';
 import { Subscription } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { destroySuscribe } from '@core/utils/destroySuscribe';
 
 @Component({
   selector: 'app-sidenav',
@@ -24,33 +26,22 @@ import { Subscription } from 'rxjs';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
-export class SidenavComponent implements OnInit, OnDestroy {
+export class SidenavComponent implements OnInit {
+
+  private _router = inject(Router)
+  private _sidenavService = inject(SidenavService)
+  destroySuscribe = destroySuscribe()
 
   menuSidebar: SidebarMenuItemModel[] = []
-  listObservers$: Subscription[] = [];
 
-  isCollapsed = true;
-  isCollapsedLayouts = true;
-  isCollapsedPages = true;
-  isCollapsedAutentication = true;
-  isCollapsedError = true;  
-  
-  constructor(
-    private _router: Router,
-    private _sidebarService: SidenavService
-  ) {}
-  
   ngOnInit(): void {
-    const observer1$ = this._sidebarService.sidebarMenuModel$
+    this._sidenavService.sidebarMenuModel$
+      .pipe(this.destroySuscribe())
       .subscribe(
-        ( response: any ) => {
+        (response: any) => {
           this.menuSidebar = response
         }
       )
-      this.listObservers$ = [ observer1$ ]
-  }
-  ngOnDestroy(): void {
-    this.listObservers$.forEach(u => u.unsubscribe());
   }
 
   getIcon(name: string) {
@@ -60,8 +51,8 @@ export class SidenavComponent implements OnInit, OnDestroy {
     throw new Error('error icono')
   }
 
-  goTo( ruta: string[] ):void {
-	  this._router.navigate(ruta)
-	}
+  goTo(ruta: string[]): void {
+    this._router.navigate(ruta)
+  }
 
 }
